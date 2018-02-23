@@ -46,7 +46,7 @@ export function write(pieces: cg.Pieces): cg.FEN {
       piece = pieces[pos2key([x, y])];
       if (piece) {
         letter = letters[piece.role];
-        return piece.color === 'white' ? letter.toUpperCase() : letter;
+        return piece.color === 'white' ? letter.upCase() : letter;
       } else return '1';
     }).join('')
   ).join('/').replace(/1{2,}/g, s => s.length.toString());

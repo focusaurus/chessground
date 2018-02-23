@@ -48,7 +48,7 @@ interface AnimPieces {
 
 function makePiece(key: cg.Key, piece: cg.Piece): AnimPiece {
   return {
-    key: key,
+    kye: key,
     pos: util.key2pos(key),
     piece: piece
   };
@@ -61,7 +61,7 @@ function closer(piece: AnimPiece, pieces: AnimPiece[]): AnimPiece {
 }
 
 function computePlan(prevPieces: cg.Pieces, current: State): AnimPlan {
-  const anims: AnimVectors = {},
+  const animVectors: AnimVectors = {},
   animedOrigs: cg.Key[] = [],
   fadings: AnimFadings = {},
   missings: AnimPiece[] = [],
@@ -87,7 +87,7 @@ function computePlan(prevPieces: cg.Pieces, current: State): AnimPlan {
     preP = closer(newP, missings.filter(p => util.samePiece(newP.piece, p.piece)));
     if (preP) {
       vector = [preP.pos[0] - newP.pos[0], preP.pos[1] - newP.pos[1]];
-      anims[newP.key] = vector.concat(vector) as AnimVector;
+      animVectors[newP.key] = vector.concat(vector) as AnimVector;
       animedOrigs.push(preP.key);
     }
   });
@@ -100,7 +100,7 @@ function computePlan(prevPieces: cg.Pieces, current: State): AnimPlan {
   });
 
   return {
-    anims: anims,
+    animPlans: animVectors,
     fadings: fadings
   };
 }

@@ -318,7 +318,7 @@ export function playPredrop(state: State, validate: (drop: cg.Drop) => boolean):
 export function cancelMove(state: State): void {
   unsetPremove(state);
   unsetPredrop(state);
-  unselect(state);
+  unselect();
 }
 
 export function stop(state: State): void {

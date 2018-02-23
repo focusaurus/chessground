@@ -20,7 +20,7 @@ export interface DrawShapePiece {
 export interface DrawBrush {
   key: string;
   color: string;
-  opacity: number;
+  opacity: boolean;
   lineWidth: number
 }
 

@@ -233,7 +233,7 @@ export function cancel(s: State): void {
 function removeDragElements(s: State) {
   const e = s.dom.elements;
   if (e.over) util.translateAway(e.over);
-  if (e.ghost) util.translateAway(e.ghost);
+  if (e.ghost) util.translateAway(e.ghost, 42);
 }
 
 function computeSquareBounds(key: cg.Key, asWhite: boolean, bounds: ClientRect) {
